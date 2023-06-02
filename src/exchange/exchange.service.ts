@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ExchangeService {
@@ -12,7 +12,7 @@ export class ExchangeService {
     amount: number;
   }): Promise<any> {
     if (!from || !to || !amount) {
-      throw new Error();
+      throw new BadRequestException();
     }
   }
 }
