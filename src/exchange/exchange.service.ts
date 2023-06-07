@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common'
 
 export class CurrenciesService {
   async getCurrency(currency: string): Promise<any> {}
@@ -8,13 +8,12 @@ export class CurrenciesService {
 export class ExchangeService {
   constructor(private currenciesService: CurrenciesService) {}
   async convertAmount({ from, to, amount }): Promise<any> {
-    if (!from || !to || !amount) {
-      throw new BadRequestException();
-    }
+    if (!from || !to || !amount)
+      throw new BadRequestException()
 
-    const currencyFrom = await this.currenciesService.getCurrency(from);
-    const currencyTo = await this.currenciesService.getCurrency(to);
+    const currencyFrom = await this.currenciesService.getCurrency(from)
+    const currencyTo = await this.currenciesService.getCurrency(to)
 
-    return 'hello';
+    return 'hello'
   }
 }
